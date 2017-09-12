@@ -1,0 +1,10 @@
+﻿  VkDisplayHandler.cpp
+  VkHandler.cpp
+  main.cpp
+  Generating code
+  6 of 1374 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    4 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Vk_test.vcxproj -> G:\Graphic_Projects\Vulkan\k3_engine\Vk_test\x64\Release\Vk_test.exe
+  Vk_test.vcxproj -> G:\Graphic_Projects\Vulkan\k3_engine\Vk_test\x64\Release\Vk_test.pdb (Full PDB)
