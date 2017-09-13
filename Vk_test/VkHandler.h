@@ -11,7 +11,7 @@ struct Vertex
 	glm::vec3	color;
 
 	static		VkVertexInputBindingDescription		getBindingDescription() {
-		VkVertexInputBindingDescription			bindingDescription = {};
+		VkVertexInputBindingDescription	bindingDescription = {};
 		bindingDescription.binding = 0;
 		bindingDescription.stride = sizeof(Vertex);
 		bindingDescription.inputRate = VK_VERTEX_INPUT_RATE_VERTEX;
@@ -49,10 +49,10 @@ class VkHandler {
 	friend class VkGPU;
 
 public:
-	void						run();
-	void						terminate();
-	void						resizeWindow(const int newSizeX, const int newSizeY, const bool fullscreen);
-	static uint32_t				findMemoryType(VkPhysicalDevice physicalGPU, uint32_t typeFilter, VkMemoryPropertyFlags properties);
+	void				run();
+	void				terminate();
+	void				resizeWindow(const int newSizeX, const int newSizeY, const bool fullscreen);
+	static uint32_t			findMemoryType(VkPhysicalDevice physicalGPU, uint32_t typeFilter, VkMemoryPropertyFlags properties);
 
 	VkHandler() {
 		initSubClasses();
@@ -64,52 +64,52 @@ public:
 
 private:
 	
-	void						initSubClasses();
-	void						initVulkan();
-	void						mainLoop();
-	void						createInstance();
-	bool						checkValidationLayerSupport();
+	void				initSubClasses();
+	void				initVulkan();
+	void				mainLoop();
+	void				createInstance();
+	bool				checkValidationLayerSupport();
 	std::vector<const char *>	getGlfwRequiredExtensions();
-	void						setupDebugCallback();
-	void						terminateVulkan();
-	char*						getMissingQueue(VkQueueFlags);
-	void						createRenderPass();
-	void						createGFXPipeline();
-	void						createCmdPool();
-	void						createCmdBuffers();
-	void						createSemaphores();
-	void						createVertexBuffer();
-	void						createIndexBuffer();
-	void						copyBuffer(VkBuffer src, VkBuffer dst, VkBufferCopy *copyInfo, uint32_t copyInfoSize, VkFence fence);
-	void						createBuffer(VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags memProperties, VkBuffer& buffer, VkDeviceMemory& bufferMemory);
-	void						recreateSwapChain();
-	void						cleanupSwapChainAssets();
-	void						drawFrame();
-	VkShaderModule				createShaderModuleFromSrc(const std::string& filename);
-	void						DestroyDebugReportCallbackEXT(VkInstance instance, VkDebugReportCallbackEXT callback, const VkAllocationCallbacks* pAllocator);
-	VkResult					CreateDebugReportCallbackEXT(VkInstance instance, const VkDebugReportCallbackCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugReportCallbackEXT* pCallback);
-	void						transferBufferToGpuStaged(void const* bufferDataVkBuffer, VkDeviceSize const bufferDataSize, VkBuffer& dstBuffer, VkDeviceMemory& dstBufferMemory, int const copySrcOffst, int const copyDstOffst);
+	void				setupDebugCallback();
+	void				terminateVulkan();
+	char*				getMissingQueue(VkQueueFlags);
+	void				createRenderPass();
+	void				createGFXPipeline();
+	void				createCmdPool();
+	void				createCmdBuffers();
+	void				createSemaphores();
+	void				createVertexBuffer();
+	void				createIndexBuffer();
+	void				copyBuffer(VkBuffer src, VkBuffer dst, VkBufferCopy *copyInfo, uint32_t copyInfoSize, VkFence fence);
+	void				createBuffer(VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags memProperties, VkBuffer& buffer, VkDeviceMemory& bufferMemory);
+	void				recreateSwapChain();
+	void				cleanupSwapChainAssets();
+	void				drawFrame();
+	VkShaderModule			createShaderModuleFromSrc(const std::string& filename);
+	void				DestroyDebugReportCallbackEXT(VkInstance instance, VkDebugReportCallbackEXT callback, const VkAllocationCallbacks* pAllocator);
+	VkResult			CreateDebugReportCallbackEXT(VkInstance instance, const VkDebugReportCallbackCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugReportCallbackEXT* pCallback);
+	void				transferBufferToGpuStaged(void const* bufferDataVkBuffer, VkDeviceSize const bufferDataSize, VkBuffer& dstBuffer, VkDeviceMemory& dstBufferMemory, int const copySrcOffst, int const copyDstOffst);
 	
 	////////////////////////////////////
 	// VARIABLES
 	////////////////////////////////////
 
 
-	VkInstance						instance;
-	VkDebugReportCallbackEXT		callback;
-	VkDisplayHandler				*dispHandler;
-	VkGPU							*gpu;
-	VkRenderPass					renderPass;
-	VkPipelineLayout				pipelineLayout;
-	VkPipeline						gfxPipeline;
-	VkCommandPool					cmdPools[4];
+	VkInstance			instance;
+	VkDebugReportCallbackEXT	callback;
+	VkDisplayHandler		*dispHandler;
+	VkGPU				*gpu;
+	VkRenderPass			renderPass;
+	VkPipelineLayout		pipelineLayout;
+	VkPipeline			gfxPipeline;
+	VkCommandPool			cmdPools[4];
 	std::vector<VkCommandBuffer>	cmdBuffers;
-	VkSemaphore						semImgAvailable;
-	VkSemaphore						semRenderFinished;
-	VkBuffer						vertexBuffer;
-	VkDeviceMemory					vertexBufferMemory;
-	uint32_t						vertexObjectSize;
-	VkBuffer						indexBuffer;
-	VkDeviceMemory					indexBufferMemory;
+	VkSemaphore			semImgAvailable;
+	VkSemaphore			semRenderFinished;
+	VkBuffer			vertexBuffer;
+	VkDeviceMemory			vertexBufferMemory;
+	uint32_t			vertexObjectSize;
+	VkBuffer			indexBuffer;
+	VkDeviceMemory			indexBufferMemory;
 
 };
