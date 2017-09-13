@@ -7,7 +7,7 @@ class VkGPU {
 public:
 	
 	void				init(VkInstance const& instance, VkSurfaceKHR const& surface);
-	static				SwapChainSupportDetails		querySwapChainSupport(VkPhysicalDevice device, VkSurfaceKHR const& surface);
+	static SwapChainSupportDetails	querySwapChainSupport(VkPhysicalDevice device, VkSurfaceKHR const& surface);
 	VkDevice const&			getLogicalDevice() const;
 	VkPhysicalDevice const&		getPhysicalDevice() const;
 	VkQueue const&			getGfxQueue() const;
